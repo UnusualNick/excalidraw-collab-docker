@@ -12,14 +12,8 @@ RUN echo "Cache invalidator: $CACHE_INVALIDATOR"
 # Clone the Excalidraw repo directly
 RUN git clone --depth 1 https://github.com/excalidraw/excalidraw.git .
 
-RUN npm install -g pnpm
-
-# Set environment variables so the pnpm command is found
-ENV PNPM_HOME="/usr/local/lib/node_modules/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-
-RUN pnpm i
-RUN pnpm run build:app:docker
+RUN npm i
+RUN npm run build:app:docker
 
 # Production image
 FROM nginx:1.27-alpine
