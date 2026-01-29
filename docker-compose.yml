@@ -11,7 +11,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.excalidraw.rule=Host(`${EXCALIDRAW_DOMAIN}`)"
-      - "traefik.http.routers.excalidraw.entrypoints=websecure"
+      - "traefik.http.routers.excalidraw.entrypoints=https"
       - "traefik.http.routers.excalidraw.tls=true"
       - "traefik.http.services.excalidraw.loadbalancer.server.port=8080"
 
@@ -20,6 +20,6 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.collab.rule=Host(`${COLLAB_DOMAIN}`)"
-      - "traefik.http.routers.collab.entrypoints=websecure"
+      - "traefik.http.routers.collab.entrypoints=https"
       - "traefik.http.routers.collab.tls=true"
       - "traefik.http.services.collab.loadbalancer.server.port=8081"
