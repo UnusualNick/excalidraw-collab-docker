@@ -12,8 +12,8 @@ RUN echo "Cache invalidator: $CACHE_INVALIDATOR"
 # Clone the Excalidraw repo directly
 RUN git clone --depth 1 https://github.com/excalidraw/excalidraw.git .
 
-RUN yarn --network-timeout 600000
-RUN yarn build:app:docker
+RUN npm i
+RUN npm run build:app:docker
 
 # Production image
 FROM nginx:1.27-alpine
